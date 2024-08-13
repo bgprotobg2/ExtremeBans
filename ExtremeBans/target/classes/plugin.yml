@@ -1,0 +1,23 @@
+name: ExtremeBans
+version: '1.0'
+main: bgprotobg.net.extremebans.ExtremeBans
+api-version: '1.20'
+commands:
+  ban:
+    description: Bans a player permanently.
+  tempban:
+    description: Temporarily bans a player.
+  mute:
+    description: Mutes a player permanently.
+  tempmute:
+    description: Temporarily mutes a player.
+  kick:
+    description: Kicks a player.
+  blacklist:
+    description: Blacklists a player.
+  unban:
+    description: Unbans a player.
+  unmute:
+    description: Unmutes a player.
+  history:
+    description: Shows the punishment history of a player.

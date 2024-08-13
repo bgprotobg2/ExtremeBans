@@ -21,3 +21,5 @@ commands:
     description: Unmutes a player.
   history:
     description: Shows the punishment history of a player.
+  extremebans:
+    description: Reload ExtremeBans configuration.

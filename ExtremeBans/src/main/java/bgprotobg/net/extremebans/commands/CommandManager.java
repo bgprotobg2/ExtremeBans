@@ -14,5 +14,6 @@ public class CommandManager {
         plugin.getCommand("unban").setExecutor(new UnbanCommand());
         plugin.getCommand("unmute").setExecutor(new UnmuteCommand());
         plugin.getCommand("history").setExecutor(new HistoryCommand());
+        plugin.getCommand("extremebans").setExecutor(new ReloadCommand());
     }
 }

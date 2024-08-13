@@ -1,2 +1,12 @@
 # ExtremeBans Configuration File
-# Nothing still :D
+messages:
+  ban: "Player {player} has been banned for: {reason}"
+  blacklist: "Player {player} has been blacklisted for: {reason}"
+  kick: "Player {player} has been kicked for: {reason}"
+  mute: "Player {player} has been muted for: {reason}"
+  tempban: "Player {player} has been temporarily banned for: {reason}"
+  tempmute: "Player {player} has been temporarily muted for: {reason}"
+  unban: "Player {player} has been unbanned."
+  unmute: "Player {player} has been unmuted."
+  banned_message: "You are banned from this server."
+  muted_message: "You are muted and cannot speak."

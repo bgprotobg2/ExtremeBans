@@ -1,5 +1,6 @@
 package bgprotobg.net.extremebans.commands;
 
+import bgprotobg.net.extremebans.ExtremeBans;
 import bgprotobg.net.extremebans.punishments.PunishmentManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -17,7 +18,9 @@ public class BanCommand implements CommandExecutor {
         String playerName = args[0];
         String reason = String.join(" ", java.util.Arrays.copyOfRange(args, 1, args.length));
         PunishmentManager.getInstance().banPlayer(playerName, reason);
-        sender.sendMessage("Player " + playerName + " has been banned for: " + reason);
+        String message = ExtremeBans.getInstance().getMessage("ban");
+        message = message.replace("{player}", playerName).replace("{reason}", reason);
+        sender.sendMessage(message);
         return true;
     }
 }

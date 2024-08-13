@@ -1,5 +1,6 @@
 package bgprotobg.net.extremebans.listeners;
 
+import bgprotobg.net.extremebans.ExtremeBans;
 import bgprotobg.net.extremebans.punishments.PunishmentManager;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -14,7 +15,8 @@ public class PlayerListener implements Listener {
     public void onPlayerLogin(PlayerLoginEvent event) {
         UUID playerUUID = event.getPlayer().getUniqueId();
         if (PunishmentManager.getInstance().isBanned(playerUUID)) {
-            event.disallow(PlayerLoginEvent.Result.KICK_BANNED, "You are banned from this server.");
+            String bannedMessage = ExtremeBans.getInstance().getMessage("banned_message");
+            event.disallow(PlayerLoginEvent.Result.KICK_BANNED, bannedMessage);
         }
     }
 
@@ -22,7 +24,8 @@ public class PlayerListener implements Listener {
     public void onPlayerChat(AsyncPlayerChatEvent event) {
         UUID playerUUID = event.getPlayer().getUniqueId();
         if (PunishmentManager.getInstance().isMuted(playerUUID)) {
-            event.getPlayer().sendMessage("You are muted and cannot speak.");
+            String mutedMessage = ExtremeBans.getInstance().getMessage("muted_message");
+            event.getPlayer().sendMessage(mutedMessage);
             event.setCancelled(true);
         }
     }

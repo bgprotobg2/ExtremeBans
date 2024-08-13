@@ -1,5 +1,6 @@
 package bgprotobg.net.extremebans.commands;
 
+import bgprotobg.net.extremebans.ExtremeBans;
 import bgprotobg.net.extremebans.punishments.PunishmentManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -15,7 +16,9 @@ public class UnbanCommand implements CommandExecutor {
         }
         String playerName = args[0];
         PunishmentManager.getInstance().unbanPlayer(playerName);
-        sender.sendMessage("Player " + playerName + " has been unbanned.");
+        String message = ExtremeBans.getInstance().getMessage("unban");
+        message = message.replace("{player}", playerName);
+        sender.sendMessage(message);
         return true;
     }
 }

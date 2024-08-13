@@ -8,6 +8,7 @@ bgprotobg\net\extremebans\database\PunishmentDAO.class
 bgprotobg\net\extremebans\commands\CommandManager.class
 bgprotobg\net\extremebans\commands\UnbanCommand.class
 bgprotobg\net\extremebans\commands\MuteCommand.class
+bgprotobg\net\extremebans\commands\ReloadCommand.class
 bgprotobg\net\extremebans\punishments\PunishmentType.class
 bgprotobg\net\extremebans\commands\TempBanCommand.class
 bgprotobg\net\extremebans\ExtremeBans.class

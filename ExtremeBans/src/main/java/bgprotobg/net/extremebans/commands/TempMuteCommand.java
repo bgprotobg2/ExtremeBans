@@ -1,5 +1,6 @@
 package bgprotobg.net.extremebans.commands;
 
+import bgprotobg.net.extremebans.ExtremeBans;
 import bgprotobg.net.extremebans.punishments.PunishmentManager;
 import bgprotobg.net.extremebans.utils.Utils;
 import org.bukkit.command.Command;
@@ -18,7 +19,9 @@ public class TempMuteCommand implements CommandExecutor {
         long duration = Utils.parseDuration(args[1]);
         String reason = String.join(" ", java.util.Arrays.copyOfRange(args, 2, args.length));
         PunishmentManager.getInstance().tempMutePlayer(playerName, duration, reason);
-        sender.sendMessage("Player " + playerName + " has been temporarily muted for: " + reason);
+        String message = ExtremeBans.getInstance().getMessage("tempmute");
+        message = message.replace("{player}", playerName).replace("{reason}", reason);
+        sender.sendMessage(message);
         return true;
     }
 }

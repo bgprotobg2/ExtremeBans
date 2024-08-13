@@ -1,5 +1,6 @@
 package bgprotobg.net.extremebans.commands;
 
+import bgprotobg.net.extremebans.ExtremeBans;
 import bgprotobg.net.extremebans.punishments.PunishmentManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -16,7 +17,9 @@ public class MuteCommand implements CommandExecutor {
         String playerName = args[0];
         String reason = String.join(" ", java.util.Arrays.copyOfRange(args, 1, args.length));
         PunishmentManager.getInstance().mutePlayer(playerName, reason);
-        sender.sendMessage("Player " + playerName + " has been muted for: " + reason);
+        String message = ExtremeBans.getInstance().getMessage("mute");
+        message = message.replace("{player}", playerName).replace("{reason}", reason);
+        sender.sendMessage(message);
         return true;
     }
 }
